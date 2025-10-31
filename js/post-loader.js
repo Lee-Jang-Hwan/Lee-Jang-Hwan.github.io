@@ -113,6 +113,15 @@
     setTimeout(highlightCode, 100);
   }
 
+  // Base path 감지
+  function getBasePath() {
+    const path = window.location.pathname;
+    if (path.startsWith('/blog/')) {
+      return '/blog/';
+    }
+    return '/';
+  }
+
   // 게시글 로드
   async function loadPost(filename) {
     if (!filename) {
@@ -122,7 +131,8 @@
     }
 
     try {
-      const response = await fetch(`pages/${filename}`);
+      const basePath = getBasePath();
+      const response = await fetch(`${basePath}pages/${filename}`);
       if (!response.ok) {
         throw new Error('게시글을 불러올 수 없습니다.');
       }

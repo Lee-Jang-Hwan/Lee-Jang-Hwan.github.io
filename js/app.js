@@ -5,10 +5,20 @@
 
   let posts = [];
 
+  // Base path 감지
+  function getBasePath() {
+    const path = window.location.pathname;
+    if (path.startsWith('/blog/')) {
+      return '/blog/';
+    }
+    return '/';
+  }
+
   // posts.json 로드
   async function loadPosts() {
     try {
-      const response = await fetch('posts.json');
+      const basePath = getBasePath();
+      const response = await fetch(`${basePath}posts.json`);
       if (!response.ok) {
         throw new Error('게시글 목록을 불러올 수 없습니다.');
       }

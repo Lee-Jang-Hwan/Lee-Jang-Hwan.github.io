@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="post-title">게시글 - Lee-Jang-Hwan's Blog</title>
+  <script>
+    // Base path 동적 설정
+    (function() {
+      const path = window.location.pathname;
+      const basePath = path.startsWith('/blog/') ? '/blog/' : '/';
+      const base = document.createElement('base');
+      base.href = basePath;
+      document.head.insertBefore(base, document.head.firstChild);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/prism.css">
 </head>
