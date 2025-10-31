@@ -115,44 +115,53 @@ node .github/scripts/generate-posts.js
 
    ```javascript
    // 첫 번째 검색
-   mcp_tavily-mcp_tavily-search({
-     query: "AI 기업 개인정보 유출 2025",
-     search_depth: "advanced",
-     topic: "news",
-     max_results: 15,
-     include_raw_content: true
-   })
+   mcp_tavily -
+     mcp_tavily -
+     search({
+       query: "AI 기업 개인정보 유출 2025",
+       search_depth: "advanced",
+       topic: "news",
+       max_results: 15,
+       include_raw_content: true,
+     });
 
    // 두 번째 검색
-   mcp_tavily-mcp_tavily-search({
-     query: "AI 데이터 유출 사건 최신",
-     search_depth: "advanced",
-     topic: "general",
-     max_results: 15,
-     include_raw_content: true
-   })
+   mcp_tavily -
+     mcp_tavily -
+     search({
+       query: "AI 데이터 유출 사건 최신",
+       search_depth: "advanced",
+       topic: "general",
+       max_results: 15,
+       include_raw_content: true,
+     });
 
    // 세 번째 검색
-   mcp_tavily-mcp_tavily-search({
-     query: "인공지능 프라이버시 문제",
-     search_depth: "advanced",
-     topic: "general",
-     max_results: 15,
-     include_raw_content: true
-   })
+   mcp_tavily -
+     mcp_tavily -
+     search({
+       query: "인공지능 프라이버시 문제",
+       search_depth: "advanced",
+       topic: "general",
+       max_results: 15,
+       include_raw_content: true,
+     });
    ```
 
 2. **검색 결과 분석 및 정보 수집**:
+
    - 수집된 정보에서 사실과 데이터 추출
    - 다양한 관점의 정보 정리
    - 최신 통계 및 사례 확인
 
 3. **게시글 작성**:
+
    - `pages/ai-data-breach.md` 파일 생성
    - Front Matter 작성
    - 본문 작성 (기존 스타일 준수, 웹 검색 결과 기반)
 
 4. **posts.json 업데이트 실행**:
+
    ```bash
    node .github/scripts/generate-posts.js
    ```
