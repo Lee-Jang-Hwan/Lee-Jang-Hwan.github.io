@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lee-Jang-Hwan's Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Lee-Jang-Hwan's Blog</a></h1>
+      <button id="theme-toggle" class="theme-toggle" aria-label="다크모드 토글">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="controls">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="게시글 검색..." 
+          aria-label="게시글 검색"
+        >
+      </div>
+      <div class="filter-container">
+        <button id="filter-all" class="filter-btn active">전체</button>
+        <div id="tag-filters" class="tag-filters"></div>
+      </div>
+    </div>
+
+    <div id="posts-container" class="posts-container">
+      <!-- 게시글 목록이 여기에 동적으로 로드됩니다 -->
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+      검색 결과가 없습니다.
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Lee-Jang-Hwan. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
