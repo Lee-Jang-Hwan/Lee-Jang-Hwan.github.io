@@ -166,9 +166,9 @@
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo', 'Lee-Jang-Hwan/Lee-Jang-Hwan.github.io');
-    script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // TODO: https://giscus.app/ko 에서 실제 값으로 교체 필요
+    script.setAttribute('data-repo-id', 'R_kgDOQM1hNw');
     script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // TODO: 실제 값으로 교체 필요
+    script.setAttribute('data-category-id', 'DIC_kwDOQM1hN84CxTLd');
     script.setAttribute('data-mapping', 'pathname');
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
