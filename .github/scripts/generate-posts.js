@@ -20,7 +20,7 @@ const posts = files.map((filename) => {
   const content = fs.readFileSync(filePath, 'utf8');
 
   // Front Matter 파싱
-  const frontMatterMatch = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const frontMatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
   let metadata = {};
   let postContent = content;
 
@@ -31,10 +31,13 @@ const posts = files.map((filename) => {
     // Front Matter 라인 파싱
     const lines = frontMatter.split('\n');
     lines.forEach((line) => {
-      const colonIndex = line.indexOf(':');
+      const trimmedLine = line.trim();
+      if (!trimmedLine) return; // 빈 줄 건너뛰기
+      
+      const colonIndex = trimmedLine.indexOf(':');
       if (colonIndex > 0) {
-        const key = line.substring(0, colonIndex).trim();
-        let value = line.substring(colonIndex + 1).trim();
+        const key = trimmedLine.substring(0, colonIndex).trim();
+        let value = trimmedLine.substring(colonIndex + 1).trim();
 
         // 따옴표 제거
         if (
@@ -47,12 +50,18 @@ const posts = files.map((filename) => {
         // 배열 파싱 (tags)
         if (key === 'tags' && value.startsWith('[') && value.endsWith(']')) {
           try {
+            // JSON 형식 파싱 시도
             value = JSON.parse(value);
           } catch {
-            value = value
-              .slice(1, -1)
-              .split(',')
-              .map((tag) => tag.trim().replace(/^['"]|['"]$/g, ''));
+            // JSON 파싱 실패 시 수동 파싱
+            const arrayContent = value.slice(1, -1).trim();
+            if (arrayContent) {
+              value = arrayContent
+                .split(',')
+                .map((tag) => tag.trim().replace(/^['"]|['"]$/g, ''));
+            } else {
+              value = [];
+            }
           }
         }
 
